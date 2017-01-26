@@ -8,7 +8,7 @@
 			minorVersion: process.env.MINOR_VERSION || '0',
 			buildNumber: process.env.BUILD_NUMBER || '1',
 			productVersion: require('util').format('%s.%s.%s', '<%= metadata.majorVersion %>', '<%= metadata.minorVersion %>', '<%= metadata.buildNumber %>'),
-			productName: process.env.PRODUCT_NAME || 'VIPRE Business Web Console',
+			productName: process.env.PRODUCT_NAME || 'Concreter',
 			outputName: process.env.OUTPUT_NAME || 'Concreter_<%= metadata.productVersion %>'
 		},
 		banner: '/* <%= pkg.name %> - v<%= pkg.version %>\n' +
