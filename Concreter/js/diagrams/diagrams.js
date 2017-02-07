@@ -5,60 +5,64 @@
 			replace: true,
 			scope: {},
 			link: function(scope, element, attrs) {
-				var margin = { top: 30, right: 20, bottom: 30, left: 50 };
-				var width = 400 - margin.left - margin.right;
-				var height = 220 - margin.top - margin.bottom;
+				var width = 480,
+					height = 480,
+					dotradius = 4,
+					gridSpacing = 10;
 
-				var parseDate = d3.time.format("%d-%b-%y").parse;
+				var svg = d3.select("#area1").append("svg")
+					.attr("width", width)
+					.attr("height", height);
 
-				var x = d3.time.scale().range([0, width]);
-				var y = d3.scale.linear().range([height, 0]);
+				var x = d3.scale.linear().domain([-100, 100]).range([0, width]);
+				var y = d3.scale.linear().domain([-100, 100]).range([height, 0]);
 
-				var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(5);
-				var yAxis = d3.svg.axis().scale(y).orient("left").ticks(5);
+				svg.append("path")
+					.attr("class", "grid")
+					.attr("d", function() {
+						var d = "";
 
-				var valueline = d3.svg.line()
-					.x(function(d) {
-						return x(d.date);
-					}).y(function(d) {
-						return y(d.close);
+						for (var i = gridSpacing; i < width; i += gridSpacing) {
+							d += "M" + i + ",0 L" + i + "," + height;
+						}
+
+						for (var j = gridSpacing; j < height; j += gridSpacing) {
+							d += "M0," + j + " L" + width + "," + j;
+						}
+
+						return d;
 					});
 
-				var chart = d3.select("#area1")
-					.append("svg")
-						.attr("width", width + margin.left + margin.right)
-						.attr("height", height + margin.top + margin.bottom)
-					.append("g")
-						.attr("transform", "translate(" + margin.left + "," + margin.right + ")");
+				// x axis
+				svg.append("path")
+					.attr("class", "axis")
+					.attr("d", "M0, " + height/2 + " L" + width + "," + height/2);
 
-				d3.csv("js/diagrams/data-1.csv", function (error, data) {
-					data.forEach(function(d) {
-						d.date = parseDate(d.date);
-						d.close = +d.close;
+				// y axis
+				svg.append("path")
+					.attr("class", "axis")
+					.attr("d", "M" + width / 2 + ",0 L" + width / 2 + "," + height);
+
+				var itemList = [];
+				d3.csv("js/diagrams/data-1.csv", function(error, data) {
+					data.forEach(function (d) {
+						itemList.push({
+							x: d.x,
+							y: d.y
+						});
 					});
 
-					x.domain(d3.extent(data, function(d) {
-						return d.date;
-					}));
+					var items = svg.selectAll("g.item").data(itemList).enter().append("g")
+					.attr("class", "item");
 
-					y.domain([
-						0, d3.max(data, function(d) {
-							return d.close;
+					items.append("circle")
+						.attr("r", dotradius)
+						.attr("cx", function (d) {
+							return x(d.x);
 						})
-					]);
-
-					chart.append("path")
-						.attr("class", "line")
-						.attr("d", valueline(data));
-
-					chart.append("g")
-						.attr("class", "x axis")
-						.attr("transform", "translate(0, " + height + ")")
-						.call(xAxis);
-
-					chart.append("g")
-						.attr("class", "y axis")
-						.call(yAxis);
+						.attr("cy", function (d) {
+							return y(d.y);
+						});
 				});
 			},
 			templateUrl: "js/diagrams/variability.html"

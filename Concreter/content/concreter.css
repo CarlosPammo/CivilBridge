@@ -2,16 +2,28 @@
 	font: 12px Arial;
 }
 
-path {
+.grid {
+	stroke-width: 0.5px;
 	stroke: steelblue;
-	stroke-width: 2;
+	fill: none;
+	opacity: 0.5;
+}
+
+.axis {
+	stroke-width: 3px;
+	stroke: black;
 	fill: none;
 }
 
-.axis path,
-.axis line {
-	fill: none;
-	stroke: grey;
-	stroke-width: 1;
-	shape-rendering: crispEdges;
+g.item circle {
+	fill: black;
+	stroke: none;
+}
+
+svg {
+	border: 1px solid #CCCCCC;
+}
+
+text {
+	font: 12px sans-serif;
 }
