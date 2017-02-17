@@ -14,7 +14,8 @@ angular.module("App", [
 	"ui.router",
 	//app modules,
 	"common",
-	"diagrams"
+	"diagrams",
+	"menu"
 ]).controller("AppCtrl", ["$scope", "$location",
 	function($scope, $location) {
 		$scope.current = null;
@@ -29,7 +30,7 @@ angular.module("App", [
 		$stateProvider
 			.state("home", {
 				url: "/home",
-				templateUrl: "js/common/home.html"
+				templateUrl: "js/home/home.html"
 			}).state("diagrams", {
 				url: "/diagrams",
 				templateUrl: "js/diagrams/diagrams.html"
