@@ -2,13 +2,27 @@
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<div class="navbar-brand">
-				<h3>CivilBridge</h3>
+				<span class="title-higlight glyphicon glyphicon-road"></span> 
+				<span class="title-higlight">C</span>ivil
+				<span class="title-higlight">B</span>ridge
 			</div>
 		</div>
-		<div style="margin-left: auto; margin-right: inherit; padding-left: 0; padding-right: 0">
+		<div class="collapse navbar-collapse" style="margin-left: auto; margin-right: inherit; padding-left: 0; padding-right: 0">
 			<ul class="nav navbar-nav navbar-left" style="margin: 0">
-				<li>
-					<span class="glyphicon glyphicon-list">Diagrams</span>
+				<li ng-class="{'active': isActive('#/home')}">
+					<a class="cursor">
+						<span class="glyphicon glyphicon-home"></span> Home
+					</a>
+				</li>
+				<li ng-class="{'active': isActive('#/lab')}">
+					<a class="cursor">
+						<span class="glyphicon glyphicon-ice-lolly"></span> Laboratory
+					</a>
+				</li>
+				<li ng-class="{'active': isActive('#/diagrams')}">
+					<a class="cursor">
+						<span class="glyphicon glyphicon-stats"></span> Diagrams
+					</a>
 				</li>
 			</ul>
 		</div>

@@ -1,2 +1,0 @@
-# CivilBridge
-Startup project
