@@ -1,0 +1,13 @@
+﻿<div class="btn-group dropdown">
+	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span>
+			{{ngModel.name.trim()}}  <span class="caret"></span>
+		</span>
+		<span class="sr-only">Toogle Dropdown</span>
+	</button>
+	<ul class="dropdown-menu">
+		<li ng-repeat="item in items">
+			<a href="" ng-click="pick(item)">{{item.name}}</a>
+		</li>
+	</ul>
+</div>

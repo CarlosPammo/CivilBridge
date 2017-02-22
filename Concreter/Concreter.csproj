@@ -180,12 +180,15 @@
     <Content Include="index.html" />
     <Content Include="js\app.js" />
     <Content Include="js\common\common.js" />
+    <Content Include="js\common\dropdown.html" />
     <Content Include="js\home\home.html" />
     <Content Include="js\common\menu.html" />
     <Content Include="js\common\menu.js" />
     <Content Include="js\diagrams\diagrams.html" />
     <Content Include="js\diagrams\diagrams.js" />
-    <Content Include="js\diagrams\variability.html" />
+    <Content Include="js\home\home.js" />
+    <Content Include="js\laboratory\laboratory.html" />
+    <Content Include="js\laboratory\laboratory.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

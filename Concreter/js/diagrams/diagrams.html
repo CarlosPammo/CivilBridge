@@ -1,3 +1,31 @@
-﻿<div>
-	<variability-charts></variability-charts>
+﻿<div class="row" ng-controller="DiagramCtrl">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<div class="col-md-5">
+			<fieldset>
+				<legend>Inputs</legend>
+				<div class="form-group">
+					<label class="col-md-3 control-label">Concrete: </label>
+					<dropdown ng-model="concrete" items="concretes"></dropdown>
+				</div>
+				<div class="form-group">
+					<label class="col-md-3 control-label">Sand's Origin: </label>
+					<dropdown ng-model="sand" items="sands"></dropdown>
+				</div>
+				<div class="form-group">
+					<label class="col-md-3 control-label">Additives:</label>
+					<dropdown ng-model="additive" items="additives"></dropdown>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Results</legend>
+			</fieldset>
+		</div>
+		<div class="col-md-5">
+			<fieldset>
+				<legend>Chart</legend>
+				<variability-charts></variability-charts>
+			</fieldset>
+		</div>
+	</div>
 </div>

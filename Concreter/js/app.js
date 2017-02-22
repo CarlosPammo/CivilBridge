@@ -15,6 +15,8 @@ angular.module("App", [
 	//app modules,
 	"common",
 	"diagrams",
+	"home",
+	"laboratory",
 	"menu"
 ]).controller("AppCtrl", ["$scope", "$location",
 	function($scope, $location) {
@@ -34,6 +36,9 @@ angular.module("App", [
 			}).state("diagrams", {
 				url: "/diagrams",
 				templateUrl: "js/diagrams/diagrams.html"
+			}).state("laboratory", {
+				url: "/laboratory",
+				templateUrl: "js/laboratory/laboratory.html"
 			});
 
 		$urlRouterProvider.otherwise("/home");

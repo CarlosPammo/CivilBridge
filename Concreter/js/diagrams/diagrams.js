@@ -1,16 +1,23 @@
 ﻿angular.module("diagrams", [])
+.controller("DiagramCtrl", ["$scope",
+	function ($scope) {
+		$scope.concretes = [{ name: "Viacha" }, { name: "Yura" }, { name: "Camba" }];
+		$scope.sands = [{ name: "Viloma" }, { name: "Paro" }, { name: "Chapare" }];
+		$scope.additives = [{ name: "Sika" }, { name: "Foco" }, { name: "Grace" }];
+	}
+])
 .directive("variabilityCharts", ["d3", 
 	function (d3) {
 		return {
 			replace: true,
 			scope: {},
 			link: function(scope, element, attrs) {
-				var width = 480,
-					height = 480,
-					dotradius = 4,
-					gridSpacing = 10;
+				var width = 580,
+					height = 580,
+					dotradius = 2,
+					gridSpacing = 5;
 
-				var svg = d3.select("#area1").append("svg")
+				var svg = d3.select("#area").append("svg")
 					.attr("width", width)
 					.attr("height", height);
 
@@ -65,7 +72,7 @@
 						});
 				});
 			},
-			templateUrl: "js/diagrams/variability.html"
+			template: "<div id='area'></div>"
 		}
 	}
 ]);
