@@ -77,6 +77,12 @@ text {
 	background-color: #0E5824 !important;
 }
 
+	.mdi-toolbar .active {
+		color: #FFFFFF;
+		font-size: xx-large;
+		transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+	}
+
 	/**Toolbar Color*/
 	.mdi-toolbar li a {
 		color: #FFFFFF;
@@ -120,7 +126,7 @@ text {
 }
 
 	.navbar-nav > li:hover {
-		background-color: transparent;
+		background-color: #006400 !important;
 	}
 
 		.navbar-nav > li:hover a {
@@ -130,7 +136,7 @@ text {
 		}
 
 	.navbar-nav > li:active {
-		background-color: transparent;
+		background-color: #006400 !important;
 		border: none;
 	}
 
@@ -140,8 +146,4 @@ text {
 		display: flex;
 		justify-content: space-around;
 	}
-
-		.navbar-nav > li > a:hover {
-			text-decoration: none;
-		}
 /** End Menu*/

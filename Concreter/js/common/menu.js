@@ -1,6 +1,6 @@
 ﻿angular.module("menu", [])
-.directive("topMenu", ["$location", 
-	function ($location) {
+.directive("topMenu", ["$location", "$window",
+	function ($location, $window) {
 		return {
 			retrict: "E",
 			replace: true,
@@ -10,6 +10,11 @@
 					$location.$$search = {};
 					$location.path(ref);
 				}
+
+				scope.isActive = function (path) {
+					var current = $window.location.hash;
+					return current.toLowerCase() === path;
+				};
 			},
 			templateUrl: "js/common/menu.html"
 		};
